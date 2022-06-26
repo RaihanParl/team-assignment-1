@@ -17,3 +17,13 @@ Route::group(['middleware' => 'auth', 'prefix' => '/users'], function() {
     Route::post('/{id}', 'UserController@update');
     Route::get('/{id}', 'UserController@edit');
 });
+
+Route::group(['middleware' => 'auth', 'prefix' => '/products'], function() {
+    Route::get('/', 'ProductsController@index');
+    Route::get('/add', 'ProductsController@add');
+    Route::post('/store','ProductsController@store');
+    Route::get('/delete/{id}', 'ProductsController@delete');
+    Route::post('/{id}', 'ProductsController@update');
+    Route::get('/{id}', 'ProductsController@edit');
+});
+
